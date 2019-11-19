@@ -1,0 +1,21 @@
+table {
+  border: 5px solid #404090;
+}
+
+td {
+  border: 1px solid black;
+  width: 3rem;
+  height: 3rem;
+  font-size: 1.5rem;
+  text-align: center;
+}
+
+.hover:hover {
+  border: 1px solid #ff0000;
+  color: #ff0000;
+}
+
+#compleat {
+  font-size: 2rem;
+  color: #0000ff;
+}
