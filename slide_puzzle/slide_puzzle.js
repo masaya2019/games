@@ -1,6 +1,14 @@
 let label = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, ""];
 const label_length = label.length;
 let spTD;
+
+onload = function() {
+  const new_button = document.getElementById("new_button");
+  new_button.onclick = function() {
+    createNewTable();
+  };
+};
+
 //--------------
 //テーブルの作成
 //--------------
