@@ -1,39 +1,44 @@
-let label = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, ""];
-const label_length = label.length;
-let spTD;
-
 onload = function() {
   const new_button = document.getElementById("new_button");
   new_button.onclick = function() {
-    createNewTable();
+    const start = createNew();
+    start();
   };
 };
 
-//--------------
-//テーブルの作成
-//--------------
-const createNewTable = () => {
-  const wrap = document.getElementById("wrap");
-  const existTable = document.querySelector("table");
-  if (existTable) {
-    wrap.removeChild(existTable);
-  }
-  const table = document.createElement("table");
-  shuffle();
-  //テーブルの作成
-  for (i = 0; i < 4; i++) {
-    const tr = document.createElement("tr");
-    for (j = 0; j < 4; j++) {
-      const td = document.createElement("td");
-      td.textContent = label[i * 4 + j];
-      tr.appendChild(td);
+//-----------------------------
+//ボタンをクリックしたときの動作
+//-----------------------------
+const createNew = function() {
+  let label = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, ""];
+  const label_length = label.length;
+  shuffle(label, label_length);
+  return function createNewTable() {
+    const wrap = document.getElementById("wrap");
+    //既存テーブルの消去
+    const existTable = document.querySelector("table");
+    if (existTable) {
+      wrap.removeChild(existTable);
     }
-    table.appendChild(tr);
-  }
-  wrap.appendChild(table);
+    //テーブルの作成
+    const table = document.createElement("table");
+    for (i = 0; i < 4; i++) {
+      const tr = document.createElement("tr");
+      for (j = 0; j < 4; j++) {
+        const td = document.createElement("td");
+        td.textContent = label[i * 4 + j];
+        tr.appendChild(td);
+      }
+      table.appendChild(tr);
+    }
+    wrap.appendChild(table);
+  };
 };
 
-const shuffle = () => {
+//-----------------------
+//ラベルの要素をシャッフル
+//-----------------------
+const shuffle = (label, label_length) => {
   let random, temp;
   for (i = 0; i < label_length; i++) {
     random = Math.floor(Math.random() * label_length);
