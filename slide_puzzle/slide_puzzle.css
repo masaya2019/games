@@ -15,6 +15,11 @@ td {
   color: #ff0000;
 }
 
+.can_move_display {
+  border: 1px solid yellowgreen;
+  color: yellowgreen;
+}
+
 #compleat {
   font-size: 2rem;
   color: #0000ff;
