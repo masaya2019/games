@@ -13,7 +13,7 @@ const createNew = function() {
   let label = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, ""];
   const label_length = label.length;
   let td_space;
-  //shuffle(label, label_length);
+  shuffle(label, label_length);
   return function createNewTable() {
     const wrap = document.getElementById("wrap");
     //既存テーブルの消去
