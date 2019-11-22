@@ -55,7 +55,7 @@
   border: 1px solid black;
 }
 
-#default {
+.default {
   background-color: black;
 }
 
@@ -85,4 +85,9 @@
   background-color: black;
   color: white;
   margin: 1rem 0;
+}
+
+.result {
+  background-color: black;
+  color: white;
 }
