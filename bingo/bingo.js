@@ -10,6 +10,8 @@ onload = () => {
   start_button.onclick = () => {
     //当選番号
     const elected_number = create_elected_number(elected_number_array);
+    //番号を表示
+    display_number(elected_number);
   };
 };
 
@@ -136,6 +138,7 @@ const create_elected_number = elected_number_array => {
     }
   }
 };
+
 //-----------------------------
 //数字の重複をチェック
 //-----------------------------
@@ -147,4 +150,20 @@ const check_temp_number = (temp_number, elected_number_array) => {
     }
   }
   return result;
+};
+
+//-----------------------------
+//当選番号を表示
+//-----------------------------
+const display_number = elected_number => {
+  if (elected_number <= 9) {
+    elected_number = "0" + elected_number;
+  } else {
+    elected_number = String(elected_number);
+  }
+  const panel_array = elected_number.split("");
+  const place_ten = document.getElementById("place_ten");
+  place_ten.innerHTML = panel_array[0];
+  const place_one = document.getElementById("place_one");
+  place_one.innerHTML = panel_array[1];
 };
