@@ -1,4 +1,4 @@
-onload = function() {
+onload = () => {
   const new_button = document.getElementById("new_button");
   new_button.onclick = function() {
     const start = createNew();
@@ -9,12 +9,12 @@ onload = function() {
 //-----------------------------
 //ボタンをクリックしたときの動作
 //-----------------------------
-const createNew = function() {
+const createNew = () => {
   let label = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, ""];
   const label_length = label.length;
   let td_space;
   shuffle(label, label_length);
-  return function createNewTable() {
+  return (createNewTable = () => {
     const wrap = document.getElementById("wrap");
     //既存テーブルの消去
     const existTable = document.querySelector("table");
@@ -36,7 +36,7 @@ const createNew = function() {
     //セルに数字を追加し、空白の位置を取得
     td_space = addNumber(label, label_length);
     can_move_position(td_space, label_length);
-  };
+  });
 };
 
 //-----------------------
