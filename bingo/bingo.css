@@ -20,7 +20,6 @@
 #panel_container {
   width: 28em;
   height: 12rem;
-  background-color: teal;
   display: flex;
   justify-content: space-around;
   align-items: center;
@@ -30,7 +29,13 @@
 .panel {
   width: 10rem;
   height: 10rem;
-  background-color: tomato;
+  background-color: rgb(149, 241, 87);
+}
+
+.panel div {
+  font-size: 6rem;
+  text-align: center;
+  margin: 0.5rem 0;
 }
 
 /* bingo table */
