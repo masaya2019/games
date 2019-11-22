@@ -1,6 +1,8 @@
 onload = () => {
+  let push_counter = 0;
   //ビンゴの作成
   const random_number_array = create_number_array();
+  //console.log(random_number_array);
   create_bingo_table(random_number_array);
   //リザルトテーブルの作成
   create_result_table();
@@ -8,10 +10,19 @@ onload = () => {
   //startクリックされたとき
   const start_button = document.getElementById("start_button");
   start_button.onclick = () => {
-    //当選番号
-    const elected_number = create_elected_number(elected_number_array);
-    //番号を表示
-    display_number(elected_number);
+    push_counter++;
+    if (push_counter <= 75) {
+      //当選番号
+      const elected_number = create_elected_number(elected_number_array);
+      //番号を表示
+      display_number(elected_number);
+      //ビンゴの番号チェック
+      check_bingo_number(elected_number, random_number_array);
+      //リザルトテーブルの消去
+      delete_result_number(elected_number);
+    } else {
+      start_button.removeAttribute("onclick");
+    }
   };
 };
 
@@ -33,7 +44,7 @@ const create_bingo_table = random_number_array => {
     for (j = 0; j < 5; j++) {
       const td = document.createElement("td");
       if (i == 2 && j == 2) {
-        td.id = "default";
+        td.className = "default";
       } else {
         td.innerHTML = random_number_array[i * 5 + j];
       }
@@ -166,4 +177,25 @@ const display_number = elected_number => {
   place_ten.innerHTML = panel_array[0];
   const place_one = document.getElementById("place_one");
   place_one.innerHTML = panel_array[1];
+};
+
+//-----------------------------
+//ビンゴの番号チェック
+//-----------------------------
+const check_bingo_number = (elected_number, random_number_array) => {
+  for (j = 0; j < random_number_array.length; j++) {
+    if (random_number_array[j] == elected_number) {
+      const target = document.querySelectorAll("#bingo_table tr td");
+      target[j].innerHTML = "";
+      target[j].setAttribute("class", "default");
+    }
+  }
+};
+
+//-----------------------------
+//リザルトテーブルの消去
+//-----------------------------
+const delete_result_number = elected_number => {
+  const target = document.querySelectorAll("#result_table tr td");
+  target[elected_number - 1].setAttribute("class", "result");
 };
