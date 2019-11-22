@@ -4,7 +4,13 @@ onload = () => {
   create_bingo_table(random_number_array);
   //リザルトテーブルの作成
   create_result_table();
+  let elected_number_array = new Array();
   //startクリックされたとき
+  const start_button = document.getElementById("start_button");
+  start_button.onclick = () => {
+    //当選番号
+    const elected_number = create_elected_number(elected_number_array);
+  };
 };
 
 //-----------------------------
@@ -110,4 +116,35 @@ const create_result_table = () => {
     table.appendChild(tr);
   }
   table_container.appendChild(table);
+};
+
+//-----------------------------
+//当選番号の作成
+//-----------------------------
+const create_elected_number = elected_number_array => {
+  let check_result = false;
+  while (check_result == false) {
+    //仮の数字を作成
+    const temp_number = Math.floor(Math.random() * 75 + 1);
+    console.log(temp_number, elected_number_array);
+    //数字の重複をチェック
+    check_result = check_temp_number(temp_number, elected_number_array);
+    //重複していないならOK！
+    if (check_result == true) {
+      elected_number_array.push(temp_number);
+      return temp_number;
+    }
+  }
+};
+//-----------------------------
+//数字の重複をチェック
+//-----------------------------
+const check_temp_number = (temp_number, elected_number_array) => {
+  let result = true;
+  for (i = -1; i < elected_number_array.length && result == true; i++) {
+    if (elected_number_array[i] == temp_number) {
+      result = false;
+    }
+  }
+  return result;
 };
