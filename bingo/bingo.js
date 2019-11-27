@@ -20,6 +20,11 @@ onload = () => {
       check_bingo_number(elected_number, random_number_array);
       //リザルトテーブルの消去
       delete_result_number(elected_number);
+      //ビンゴの判定
+      const target = document.querySelectorAll(".default");
+      if (target.length >= 5) {
+        bingo_check();
+      }
     } else {
       start_button.removeAttribute("onclick");
     }
@@ -139,7 +144,6 @@ const create_elected_number = elected_number_array => {
   while (check_result == false) {
     //仮の数字を作成
     const temp_number = Math.floor(Math.random() * 75 + 1);
-    console.log(temp_number, elected_number_array);
     //数字の重複をチェック
     check_result = check_temp_number(temp_number, elected_number_array);
     //重複していないならOK！
@@ -188,6 +192,7 @@ const check_bingo_number = (elected_number, random_number_array) => {
       const target = document.querySelectorAll("#bingo_table tr td");
       target[j].innerHTML = "";
       target[j].setAttribute("class", "default");
+      random_number_array[j] = "";
     }
   }
 };
@@ -198,4 +203,59 @@ const check_bingo_number = (elected_number, random_number_array) => {
 const delete_result_number = elected_number => {
   const target = document.querySelectorAll("#result_table tr td");
   target[elected_number - 1].setAttribute("class", "result");
+};
+
+//-----------------------------
+//ビンゴの判定
+//-----------------------------
+const bingo_check = () => {
+  const target = document.querySelectorAll("#bingo_table tr td");
+  //横
+  for (i = 0; i < 25; i += 5) {
+    if (target[i].innerHTML == "") {
+      for (j = 1; j < 5; j++) {
+        if (target[i + j].innerHTML == "") {
+        } else {
+          break;
+        }
+      }
+      if (j == 5) {
+        console.log("bingo　→");
+      }
+    }
+  }
+  //縦
+  for (i = 0; i < 5; i++) {
+    if (target[i].innerHTML == "") {
+      for (j = 5; j < 25; j += 5) {
+        if (target[i + j].innerHTML == "") {
+        } else {
+          break;
+        }
+      }
+      if (j >= 25) {
+        console.log("bingo　↓");
+      }
+    }
+  }
+  //斜め→↓
+  for (i = 0; i < 25; i += 6) {
+    if (target[i].innerHTML == "") {
+    } else {
+      break;
+    }
+  }
+  if (i >= 25) {
+    console.log("bingo　→↓");
+  }
+  //斜め→↑
+  for (i = 4; i <= 20; i += 4) {
+    if (target[i].innerHTML == "") {
+    } else {
+      break;
+    }
+  }
+  if (i >= 24) {
+    console.log("bingo　→↑");
+  }
 };
