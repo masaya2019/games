@@ -1,1 +1,3 @@
 # games
+
+- slide puzzle
