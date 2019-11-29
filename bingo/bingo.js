@@ -26,6 +26,11 @@ onload = () => {
       }
     }
   };
+  //resetクリックされたとき
+  const reset_button = document.getElementById("reset_button");
+  reset_button.onclick = () => {
+    location.reload(true);
+  };
 };
 
 //-----------------------------
@@ -264,5 +269,6 @@ const display_bingo = () => {
   const target = document.getElementById("display_bingo");
   if (!target.innerHTM) {
     target.innerHTML = "★　B　I　N　G　O　★";
+    document.getElementById("start_button").style.display = "none";
   }
 };
