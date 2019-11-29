@@ -1,5 +1,19 @@
+h1,
+p {
+  text-align: center;
+}
+
+button {
+  width: 13rem;
+  height: 3rem;
+  font-size: 2rem;
+  background-color: #404040;
+  color: whitesmoke;
+}
+
 table {
   border: 5px solid #404090;
+  margin: 0 auto;
 }
 
 td {
@@ -20,7 +34,7 @@ td {
   color: yellowgreen;
 }
 
-#compleat {
+#complete {
   font-size: 2rem;
   color: #0000ff;
 }
