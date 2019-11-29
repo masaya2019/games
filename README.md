@@ -1,3 +1,3 @@
-# games
+# ゲーム一覧
 
 - bingo
