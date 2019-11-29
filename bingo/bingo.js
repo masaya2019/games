@@ -2,7 +2,6 @@ onload = () => {
   let push_counter = 0;
   //ビンゴの作成
   const random_number_array = create_number_array();
-  //console.log(random_number_array);
   create_bingo_table(random_number_array);
   //リザルトテーブルの作成
   create_result_table();
@@ -25,9 +24,12 @@ onload = () => {
       if (target.length >= 5) {
         bingo_check();
       }
-    } else {
-      start_button.removeAttribute("onclick");
     }
+  };
+  //resetクリックされたとき
+  const reset_button = document.getElementById("reset_button");
+  reset_button.onclick = () => {
+    location.reload(true);
   };
 };
 
@@ -264,10 +266,9 @@ const bingo_check = () => {
 //ビンゴと表示
 //-----------------------------
 const display_bingo = () => {
-  console.log("bingo");
   const target = document.getElementById("display_bingo");
-  console.log(!target.innerHTML);
   if (!target.innerHTM) {
     target.innerHTML = "★　B　I　N　G　O　★";
+    document.getElementById("start_button").style.display = "none";
   }
 };
