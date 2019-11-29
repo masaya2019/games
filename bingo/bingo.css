@@ -1,0 +1,98 @@
+#wrap {
+  width: 100vw;
+  display: flex;
+}
+
+/*-----------
+  left side
+-----------*/
+#left_side {
+  width: 30rem;
+}
+
+#left_side p {
+  font-size: 2.5rem;
+  margin: 0;
+  text-align: center;
+}
+
+/* panel */
+#panel_container {
+  width: 28em;
+  height: 12rem;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin: 0 auto;
+}
+
+.panel {
+  width: 10rem;
+  height: 10rem;
+  background-color: rgb(149, 241, 87);
+}
+
+.panel div {
+  font-size: 6rem;
+  text-align: center;
+  margin: 0.5rem 0;
+}
+
+/* bingo table */
+#table_container {
+  margin: 0 2rem;
+}
+
+#bingo_table {
+  border: 5px solid #404090;
+}
+
+#bingo_table tr td {
+  width: 5rem;
+  height: 5rem;
+  font-size: 2rem;
+  text-align: center;
+  border: 1px solid black;
+}
+
+.default {
+  background-color: black;
+}
+
+/*-----------
+  right side
+-----------*/
+#right_side p {
+  font-size: 2rem;
+  text-align: center;
+  margin: 0.3rem 0;
+}
+
+/* result table */
+#result_table tr td {
+  width: 3rem;
+  height: 3rem;
+  font-size: 1.5rem;
+  text-align: center;
+  border: 1px solid black;
+}
+
+/* button */
+#start_button {
+  width: 10rem;
+  height: 5rem;
+  font-size: 2rem;
+  background-color: black;
+  color: white;
+  margin: 1rem 0;
+}
+
+.result {
+  background-color: black;
+  color: white;
+}
+
+/* display bingo */
+#display_bingo {
+  color: red;
+}
