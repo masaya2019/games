@@ -79,7 +79,7 @@
 }
 
 /* button */
-#start_button {
+button {
   width: 10rem;
   height: 5rem;
   font-size: 2rem;
