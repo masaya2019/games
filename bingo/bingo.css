@@ -91,3 +91,8 @@
   background-color: black;
   color: white;
 }
+
+/* display bingo */
+#display_bingo {
+  color: red;
+}
