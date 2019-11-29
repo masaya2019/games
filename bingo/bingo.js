@@ -220,7 +220,7 @@ const bingo_check = () => {
         }
       }
       if (j == 5) {
-        console.log("bingo　→");
+        display_bingo();
       }
     }
   }
@@ -234,7 +234,7 @@ const bingo_check = () => {
         }
       }
       if (j >= 25) {
-        console.log("bingo　↓");
+        display_bingo();
       }
     }
   }
@@ -246,7 +246,7 @@ const bingo_check = () => {
     }
   }
   if (i >= 25) {
-    console.log("bingo　→↓");
+    display_bingo();
   }
   //斜め→↑
   for (i = 4; i <= 20; i += 4) {
@@ -256,6 +256,18 @@ const bingo_check = () => {
     }
   }
   if (i >= 24) {
-    console.log("bingo　→↑");
+    display_bingo();
+  }
+};
+
+//-----------------------------
+//ビンゴと表示
+//-----------------------------
+const display_bingo = () => {
+  console.log("bingo");
+  const target = document.getElementById("display_bingo");
+  console.log(!target.innerHTML);
+  if (!target.innerHTM) {
+    target.innerHTML = "★　B　I　N　G　O　★";
   }
 };
