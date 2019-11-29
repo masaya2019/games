@@ -1,3 +1,4 @@
 # games
 
+- bingo
 - slide puzzle
